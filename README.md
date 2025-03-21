@@ -4,7 +4,7 @@ API para gerenciamento de tarefas utilizando Java e Spring Boot.
 
 ## 🛠 Tecnologias
 
-- Java 17
+- Java 21
 - Spring Boot 3
 - PostgreSQL
 - Spring Data JPA
@@ -15,7 +15,7 @@ API para gerenciamento de tarefas utilizando Java e Spring Boot.
 
 ### Pré-requisitos
 
-- Java 17+
+- Java 21+
 - Maven
 - PostgreSQL
 

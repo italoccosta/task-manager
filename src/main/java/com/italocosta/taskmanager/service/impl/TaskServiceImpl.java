@@ -20,25 +20,36 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public Task createTask(TaskRequestDTO task) {
-        Task newTask = new Task(null, task.title(), task.description(), task.status(), LocalDateTime.now(), null);
+
+        System.out.println("service: " + task);
+        Task newTask = new Task(
+            null, 
+            task.title(), 
+            task.description(), 
+            task.status(), 
+            LocalDateTime.now(), 
+            null);
+
         return repository.save(newTask); 
     }
 
     @Override
     public Task findTask(Long id) {
-        var task = findById(id);
+
+        Task task = findById(id);
         return task;
     }
 
     @Override
     public List<Task> findAll() {
+
         return repository.findAll();
     }
 
     @Override
     public Task updateTask(Long id, TaskRequestDTO task) {
 
-        var updateTask = findById(id);
+        Task updateTask = findById(id);
         
         updateTask.setTitle(task.title());
         updateTask.setDescription(task.description());
@@ -50,13 +61,16 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public void removeTask(Long id) {
-        var removeTask = findById(id);
+
+        Task removeTask = findById(id);
         repository.delete(removeTask);
     }
 
     private Task findById(Long id){
-        var task = repository.findById(id).orElseThrow(() -> new TaskNotFoundException("Task not found"));
+
+        Task task = repository.findById(id)
+            .orElseThrow(() -> new TaskNotFoundException("Task not found"));
+
         return task;
     }
-
 }

@@ -51,13 +51,14 @@ mvn spring-boot:run
 
 ## 📌 Endpoints
 
-| Método     | Rota              | Descrição                  |
-| ---------- | ----------------- | -------------------------- |
-| **GET**    | `/api/tasks`      | Lista todas as tarefas     |
-| **GET**    | `/api/tasks/{id}` | Retorna uma tarefa pelo ID |
-| **POST**   | `/api/tasks`      | Cria uma nova tarefa       |
-| **PUT**    | `/api/tasks/{id}` | Atualiza uma tarefa        |
-| **DELETE** | `/api/tasks/{id}` | Remove uma tarefa          |
+| Método     | Rota                     | Descrição                  |
+| ---------- | ------------------------ | -------------------------- |
+| **GET**    | `/api/tasks`             | Lista todas as tarefas     |
+| **GET**    | `/api/tasks/{id}`        | Retorna uma tarefa pelo ID |
+| **POST**   | `/api/tasks`             | Cria uma nova tarefa       |
+| **PUT**    | `/api/tasks/{id}`        | Atualiza uma tarefa        |
+| **PUT**    | `/api/tasks/status/{id}` | Atualiza o status          |
+| **DELETE** | `/api/tasks/{id}`        | Remove uma tarefa          |
 
 ## 📌 Estrutura das Classes
 

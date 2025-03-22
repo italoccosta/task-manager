@@ -7,6 +7,8 @@ import com.italocosta.taskmanager.model.enums.TaskStatus;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -38,6 +40,7 @@ public class Task {
     private String description;
     
     @Column(name = "task_status")
+    @Enumerated(EnumType.STRING)
     private TaskStatus status;
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")

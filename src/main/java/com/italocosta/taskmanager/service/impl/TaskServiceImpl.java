@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.italocosta.taskmanager.model.dto.TaskRequestDTO;
 import com.italocosta.taskmanager.model.entity.Task;
+import com.italocosta.taskmanager.model.enums.TaskStatus;
 import com.italocosta.taskmanager.model.exceptions.TaskNotFoundException;
 import com.italocosta.taskmanager.model.repository.TaskRepository;
 import com.italocosta.taskmanager.service.TaskService;
@@ -57,6 +58,18 @@ public class TaskServiceImpl implements TaskService {
         
         return repository.save(updateTask);
     }
+    
+    @Override
+    public Task updateStatus(Long id, TaskStatus newStatus) {
+        
+        Task updateTask = findById(id);
+        
+        updateTask.setStatus(newStatus);
+        updateTask.setUpdatedAt(LocalDateTime.now());
+        
+        return repository.save(updateTask);
+    }
+
 
     @Override
     public void removeTask(Long id) {
@@ -72,4 +85,5 @@ public class TaskServiceImpl implements TaskService {
 
         return task;
     }
+
 }

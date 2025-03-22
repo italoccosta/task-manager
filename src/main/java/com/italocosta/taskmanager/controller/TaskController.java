@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.italocosta.taskmanager.model.dto.TaskRequestDTO;
 import com.italocosta.taskmanager.model.dto.TaskResponseDTO;
 import com.italocosta.taskmanager.model.entity.Task;
+import com.italocosta.taskmanager.model.enums.TaskStatus;
 import com.italocosta.taskmanager.service.TaskService;
 
 
@@ -67,6 +69,12 @@ public class TaskController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
     }
 
+    @PutMapping("/status/{id}")
+    ResponseEntity<TaskResponseDTO> updateTaskStatus(@PathVariable Long id,@RequestParam TaskStatus status) {
+        Task update = service.updateStatus(id, status);
+        TaskResponseDTO response = getResponseDTO(update);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
+    }
     
     @DeleteMapping("/{id}")
     ResponseEntity<Void> deleteTask(@PathVariable Long id) {

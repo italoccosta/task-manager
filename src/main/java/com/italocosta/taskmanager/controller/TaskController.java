@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +20,6 @@ import com.italocosta.taskmanager.model.dto.TaskResponseDTO;
 import com.italocosta.taskmanager.model.entity.Task;
 import com.italocosta.taskmanager.service.TaskService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
 @RequestMapping("/api/tasks")
@@ -32,7 +32,6 @@ public class TaskController {
     @PostMapping
     ResponseEntity<TaskResponseDTO> createTask(@RequestBody TaskRequestDTO task) {
 
-        System.out.println("controller: " + task);
         Task newTask = service.createTask(task);
 
         TaskResponseDTO response = getResponseDTO(newTask);

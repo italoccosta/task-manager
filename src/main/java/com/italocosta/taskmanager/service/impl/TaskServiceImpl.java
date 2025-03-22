@@ -21,7 +21,6 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Task createTask(TaskRequestDTO task) {
 
-        System.out.println("service: " + task);
         Task newTask = new Task(
             null, 
             task.title(), 

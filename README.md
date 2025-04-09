@@ -21,14 +21,18 @@ API para gerenciamento de tarefas utilizando Java e Spring Boot.
 
 ## Configuração do Banco de Dados
 
-1. Crie um banco de dados no PostgreSQL chamado `task_manager`.
+1. Crie um banco de dados no PostgreSQL chamado `taskmanager_db`.
 2. Configure as credenciais no arquivo `application.properties`:
 
 ```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/task_manager
+spring.datasource.url=jdbc:postgresql://localhost:5432/taskmanager_db
 spring.datasource.username=seu_usuario
 spring.datasource.password=sua_senha
 spring.jpa.hibernate.ddl-auto=update
+
+spring.flyway.enabled=true
+spring.flyway.baseline-on-migrate=true
+spring.flyway.locations=classpath:db/migration
 
 ```
 

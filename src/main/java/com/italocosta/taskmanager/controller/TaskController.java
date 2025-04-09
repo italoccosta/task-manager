@@ -56,7 +56,7 @@ public class TaskController {
         List<Task> list = service.findAll();
 
         return ResponseEntity.ok().body(list.stream()
-        .map(lt -> getResponseDTO(lt))
+        .map(this::getResponseDTO)
         .collect(Collectors.toList()));
     }
 
